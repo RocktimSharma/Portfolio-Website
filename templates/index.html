@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!---------------------------------------------------GoogleFonts-------------------------------------------------------------->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600&family=Sacramento&family=Ubuntu:ital,wght@1,500&display=swap" rel="stylesheet">
+    <!----------------------------------------------------Bootstrap-------------------------------------------------->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!----------------------------------------------------Favicon-------------------------------------------------->
+    <link rel='icon' href="{% static 'img/favicon.ico'%}">
+    <!----------------------------------------------------Local Css-------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <!-----------Website Title----------->
+    <title>Rocktim Sharma</title>
+</head>
+
+<body>
+<!---------------------------------------------------------------- Home -------------------------------------------------->
+    {% for content in site_content %}       <!-------Looping through site_content--------->
+        <section class="bg" id="header">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg fixed-top navbar-light">
+                    <a class="navbar-brand" href="#">
+                        <img src="{% static 'img/avatar.webp'%}" width="30" height="30" class="d-inline-block align-top" alt="avatar">
+                        Rocktim Sharma
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item"><a class="nav-link" href="#header">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/projects">Projects</a></li>
+                            <li class="nav-item"><a class="nav-link" href="certificates/">Certificates</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div id="title" >
+                    <img src="{% static 'img/avatar.webp'%}" width="100" height="100"  alt="">
+                    <h1 id="name"><strong>{{ content.heading }}</strong></h1>
+                    <p id="subheading">{{ content.subheading }}</p>
+                    <a href="{{ content.resume_url}}" class="btn btn-success" role="button"><i class="far fa-file"></i> Resume</a>
+                    <a href="#contact" class="btn btn-outline-primary" role="button"><i class="far fa-envelope"></i> Contact</a>
+                </div>
+            </div>
+        </section>
+        <hr>
+
+        <!---------------------------------------------------------------- Skills -------------------------------------------------->
+        <section id="skills-page">
+            <h1>My Skills</h1>
+            <div id="skills">
+                <div class="container">
+                    <div class="row">
+                        {% for skill in skills %}           <!-------Looping through skills--------->
+                        <div class="col-lg col-md-6">
+                            <div class="box">
+                                <div class="percentage">
+                                    <svg>
+                                        <circle cx="70" cy="70" r="70"></circle>
+                                        <circle  cx="70" cy="70" r="70" style="stroke-dashoffset: {{skill.skill_style}};stroke:#3E656C;"></circle>
+                                    </svg>
+                                    <div class="number">
+                                        <h1>{{skill.skill_percentage}}<span>%</span></h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <h1 class="skills-name">{{skill.skill_name}}</h1>
+                            {% if forloop.counter|divisibleby:3 %}        <!-------Checking if the number of iteration is divisible by 3--------->
+                        </div></div><div class="row ">
+                    {% else %}
+                </div>
+                    {%endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            </div>
+        </section>
+        <hr>
+        <!---------------------------------------------------------------- Projects -------------------------------------------------->
+        <section id="projects">
+            <h1>Projects</h1>
+            <div id="carouselExampleSlidesOnly" class="carousel slide slideshow" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% for image in slideshow %}        <!-------Looping through slideshow--------->
+                    {% if forloop.first %}              <!-------Checking for 1st item--------->
+                    <div class="carousel-item active">
+                        <div class="slideshow-container">
+                            <img src={{image.image.url}} class="d-block w-100" alt="...">
+                            <a href="/projects" class="btn btn-primary " role="button">See More</a>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="carousel-item">
+                        <div class="slideshow-container">
+                            <img src={{image.image.url}} class="d-block w-100" alt="...">
+                            <a href="/projects" class="btn btn-primary " role="button">See More</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <hr>
+        <!----------------------------------------------------------------- Contact --------------------------------------------------------->
+        <section id="contact">
+            <h1 id="contact-heading">Want something done? Contact me....</h1>   <!-------hide in small screen---->
+            <div class="container">
+                <div  class=" row">
+                    <!----------About Me----------->
+                    <div class="col-sm contact-column">
+                        <div id="about-me">
+                            <h2>About Me</h2>
+                            <p>{{ content.about_me }}
+                            </p>
+                        </div>
+                    </div>
+                    <!--------Contact Form---------------------->
+                    <div id="contact-section" class="col-sm contact-column">
+                        <h1 id="mobile-contact-heading">Want something done? Contact me....</h1> <!-------hidden in large scrreen---->
+                        <div id="form-section">
+                            {% if submitted %}
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Form Submitted</strong> below.
+                            </div>
+                            {% endif %}
+                            <form id='contact-form' method="POST">
+                                {% csrf_token%}
+                                <div class="form-group">
+                                    {{ form.as_p }}
+                                </div>
+                                <button class="btn btn-primary" type="submit"><i class="far fa-paper-plane"></i> Send</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section >
+    {% endfor %}
+</body>
+<!---------------------------------------------------------------- Footer ------------------------------------------------------->
+<footer class="page-footer font-small cyan darken-3 " id="footer">
+    <!-- Social Media Handles -->
+    <div class="container">
+        <div class="row">
+            {% for items in contact_urls %}         <!-------Looping through contact urls--------->
+            <div class="col-sm">
+                <a href="{{ items.url}}" >
+                    <i class="{{items.icon}}"> {{items.name}} </i>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="#header"> Rocktim Sharma</a>
+    </div>
+</footer>
+
+<!---------------------------------------------------------------- Bootstrap JS -------------------------------------------------->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<!---------------------------------------------------------------- Font Awesome Js -------------------------------------------------->
+<script src="https://kit.fontawesome.com/478c4dd083.js" crossorigin="anonymous"></script>
+<!---------------------------------------------------------------- Local JS -------------------------------------------------->
+<script src="{% static 'js/script.js'%}"></script>
+</html>

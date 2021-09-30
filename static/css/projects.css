@@ -1,0 +1,185 @@
+/*-----------------------------------------------Body---------------------------------------------*/
+body{
+    margin: 0;
+    background-image: url("../img/bodybackground.webp"); /*body background image*/
+    background-repeat: repeat-y;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*-----------------------------------------------h1---------------------------------------------*/
+h1{
+    text-align: center;
+}
+
+/*-----------------------------------------------p---------------------------------------------*/
+p{
+    line-height:160%;
+}
+
+/*-----------------------------------------------h3---------------------------------------------*/
+h3{
+    font-size: 15px;
+    margin-top: 15%;
+    margin-bottom: 15%;
+    text-align: center;
+    color: rgb(94, 97, 97);
+}
+
+/*-----------------------------------------------Page Heading---------------------------------------------*/
+#pagename{
+    color: #3E656C;
+    margin-top:0;
+    font-weight:bold;
+    background-color:#3E656C;
+    color:#ACEDED;
+    padding-bottom:4%;
+    padding-top:3%;
+    text-align:center;
+}
+
+/*-----------------------------------------------All project section---------------------------------------------*/
+#allproject{
+    margin: 2% 2%;
+}
+
+/*-----------------------------------------------Project Card---------------------------------------------*/
+.card{
+    padding:2% 2%;
+    margin:5% 0;
+}
+
+/*-----------------------------------------------Card Row---------------------------------------------*/
+#card-row{
+    margin-top:3%;
+    margin-bottom:5%
+}
+
+/*-----------------------------------------------Odd Card---------------------------------------------*/
+.card:nth-of-type(odd){
+    background-color:#3E656C;
+    color:#ACEDED;
+    border-radius: 50px 15px;
+    box-shadow: 8px 10px 8px 5px #7C9CA2;
+}
+
+/*-----------------------------------------------Odd Card row reversing elemeths---------------------------------------------*/
+.card:nth-of-type(odd) .card-body #card-row{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/*-----------------------------------------------Odd Card strong element---------------------------------------------*/
+.card:nth-of-type(odd) strong{
+    color:white;
+}
+/*----------------------------------------------Even Card ---------------------------------------------*/
+.card:nth-of-type(even){
+    color:#3E656C;
+    background-color:#ACEDED;
+    border-radius: 15px 50px;
+    box-shadow: 8px 10px 8px 5px #7C9CA2;
+}
+
+/*-----------------------------------------------Project Description---------------------------------------------*/
+.projectdesc{
+    margin:4% 2%;
+}
+
+/*-----------------------------------------------Project Name---------------------------------------------*/
+.projectname{
+    text-align:left;
+    padding-left:2%;
+    font-weight: bold;
+}
+
+/*-----------------------------------------------ProjectImage slideshow---------------------------------------------*/
+.slideshow{
+    margin:1rem 0;
+}
+
+/*-----------------------------------------------Even Card  slideshow---------------------------------------------*/
+.card:nth-of-type(even) .slideshow{
+     box-shadow: 8px 10px 8px 5px #7C9CA2;
+}
+
+/*-----------------------------------------------POdd Card card row---------------------------------------------*/
+.card:nth-of-type(odd) .slideshow{
+    box-shadow: 8px 10px 8px 5px #283E42;
+}
+
+/*-----------------------------------------------Detail Div---------------------------------------------*/
+.detials{
+    text-align:center;
+    margin:3% 0;
+}
+
+/*-----------------------------------------------Even Card Buttons---------------------------------------------*/
+.card:nth-of-type(even) .download{
+    background-color:#3E656C;
+    border-color:#3E656C;
+    padding:6px 6px;
+    margin: 0.3rem 0;
+}
+
+/*-----------------------------------------------Even Card Buttons hover---------------------------------------------*/
+.card:nth-of-type(even) .download:hover {
+     background-color: #ACEDED;
+     padding:8px 8px;
+     border-color: #3E656C;
+     color: #3E656C;
+}
+
+/*-----------------------------------------------Odd Card Buttons---------------------------------------------*/
+.card:nth-of-type(odd) .download{
+    color:#3E656C;
+    background-color:#ACEDED;
+    border-color:#ACEDED;
+    padding:6px 6px;
+    margin: 0.3rem 0;
+}
+
+/*-----------------------------------------------Odd Card Button Hover---------------------------------------------*/
+.card:nth-of-type(odd) .download:hover{
+     background-color: #ACEDED;
+     padding:8px 8px;
+     border-color:#ACEDED;
+}
+
+
+/*--------------------------------------------Footer------------------------------------*/
+#footer{
+    margin-top:2%;
+    text-align: center;
+    background-color:#3E656C;
+    padding:15px;
+}
+
+/*-----------------------------------------------Footer Copyright Link---------------------------------------------*/
+#footer a{
+    color:white;background:#3E656C;
+}
+
+/***********************************************************************************************************************/
+/*******************************************************Media Query*****************************************************/
+/***********************************************************************************************************************/
+
+
+@media (max-width:720px) {
+    /*-----------------------------------------------Project card---------------------------------------------*/
+    #project-card{
+        padding:0.7rem 0.7rem;
+        border-radius: 15px;
+    }
+    /*-----------------------------------------------Reversing Elements of odd card---------------------------------------------*/
+    .card:nth-of-type(odd) .card-body #card-row{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    /*----------------------------------------------Reversing Elements of even card---------------------------------------------*/
+    .card:nth-of-type(even) .card-body #card-row{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+

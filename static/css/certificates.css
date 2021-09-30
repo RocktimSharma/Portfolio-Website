@@ -1,0 +1,118 @@
+/*-----------------------------------------------Body---------------------------------------------*/
+body{
+    margin: 0;
+    background-image: url("../img/bodybackground.webp");     /*body background image*/
+    background-repeat: repeat-y;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+
+}
+
+/*-----------------------------------------------Page Heading---------------------------------------------*/
+#pagename{
+    color: #3E656C;
+    margin-top:0;
+    font-weight:bold;
+    background-color:#3E656C;
+    color:#ACEDED;
+    padding-bottom:4%;
+    padding-top:3%;
+    text-align:center;
+}
+
+/*-----------------------------------------------Card---------------------------------------------*/
+.card {
+    margin: 8% 4%;
+    float: none;
+    box-shadow: 8px 10px 8px 5px #7C9CA2;
+    text-align:center;
+}
+
+/*-----------------------------------------------Certificate Image---------------------------------------------*/
+.img-thumbnail{
+    width:100%;
+    height:100%
+    object-fit: cover;
+
+}
+/*-----------------------------------------------Card Body---------------------------------------------*/
+.card-body{
+    padding-bottom: 1%;
+}
+
+/*-----------------------------------------------Certification site---------------------------------------------*/
+.platform{
+    text-align: end;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+
+/*-----------------------------------------------Even row even column---------------------------------------------*/
+.certificate-card:nth-of-type(even) .card-column:nth-of-type(even) .card{
+  background-color: #3E656C;
+  color:#ACEDED;
+}
+
+/*-----------------------------------------------Even row odd column---------------------------------------------*/
+.certificate-card:nth-of-type(even) .card-column:nth-of-type(odd) .card{
+  background-color: #ACEDED;
+  color:#3E656C;
+}
+
+/*-----------------------------------------------Odd row odd column---------------------------------------------*/
+.certificate-card:nth-of-type(odd) .card-column:nth-of-type(odd) .card{
+  background-color: #3E656C;
+  color:#ACEDED;
+}
+/*-----------------------------------------------Odd row even column---------------------------------------------*/
+.certificate-card:nth-of-type(odd) .card-column:nth-of-type(even) .card{
+   background-color: #ACEDED;
+   color:#3E656C;
+}
+
+/*-----------------------------------------------Footer---------------------------------------------*/
+#footer{
+    margin-top:2%;
+    text-align: center;
+    background-color:#3E656C;
+    padding:15px;
+}
+
+/*-----------------------------------------------Footer Copyright Link---------------------------------------------*/
+#footer a{
+    color:white;
+    background:#3E656C;
+}
+
+/***********************************************************************************************************************/
+/*******************************************************Media Query*****************************************************/
+/***********************************************************************************************************************/
+
+@media (max-width: 992px) {
+    /*-----------------------------------------------Even row even column---------------------------------------------*/
+    .certificate-card:nth-of-type(even) .card-column:nth-of-type(even) .card{
+        background-color: #ACEDED;
+        color:#3E656C;
+    }
+
+    /*-----------------------------------------------Even row odd column---------------------------------------------*/
+    .certificate-card:nth-of-type(even) .card-column:nth-of-type(odd) .card{
+        background-color: #3E656C;
+        color:#ACEDED;
+    }
+
+    /*-----------------------------------------------Odd row odd column---------------------------------------------*/
+    .certificate-card:nth-of-type(odd) .card-column:nth-of-type(odd) .card{
+        background-color: #3E656C;
+        color:#ACEDED;
+    }
+
+    /*-----------------------------------------------Odd row even column---------------------------------------------*/
+    .certificate-card:nth-of-type(odd) .card-column:nth-of-type(even) .card{
+        background-color: #ACEDED;
+        color:#3E656C;
+    }
+}
